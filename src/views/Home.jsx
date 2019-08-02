@@ -1,33 +1,61 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import ImageList from '../components/ImageList';
+import AboutComponent from './About';
+import PicturesComponent from '../components/Pictures';
+import Global from '../global';
  
+const LOAD_STATE = {
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+  LOADING: 'LOADING'
+};
+
 class Home extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            images: []
-        }
+  constructor(){
+    super();
+    this.state = {
+photos: [],
+loadState: LOAD_STATE.LOADING
     }
-  componentWillMount(){
-     axios
-    .get(`https://cors-anywhere.herokuapp.com/https://pixabay.com/api/?key=13140157-990fe95c036386799e41d26e9q=wilderness+culture`)
-    .then(data => {
-        this.setState({ images: data.data });
-    })
-    .catch(err => {
-        console.log('Error happened during fetching!', err);
-    });
-  }  
+  }
+  componentDidMount() {
+    this.fetchPhotos(this.state.currentPage);
+  }
+  
+  fetchPhotos() {
+    var self = this;
+    const { client_id, baseUrl } = Global;
+    const options = {
+      params: {
+        client_id,
+        query: "wilderness",
+        page: 1,
+        per_page: 20
+      }
+    };
+    
+    this.setState({ loadState: LOAD_STATE.LOADING });
+    axios.get(`${baseUrl}/search/photos`, options)
+      .then((response) => {
+        self.setState({
+          photos: response.data.results,
+          loadState: LOAD_STATE.SUCCESS
+        });
+      })
+      .catch(() => {
+        this.setState({ loadState: LOAD_STATE.ERROR });
+      });
+  }
+       
   render() {
     return (
-      <div style={{ backgroundImage: this.state.images.length > 0 ? `url(${this.state.images.data.hits[0].largeImageURL})` : ""}}>        
-        <div className="main-content">
-					{this.state.loadingState
-						? <p>Loading</p>
-						: <ImageList data={this.state.images} />}
+        <div>
+          <AboutComponent />
+          {this.state.loadState === LOAD_STATE.LOADING
+            ? <div className="loader"></div> :
+          <PicturesComponent photos={this.state.photos}/>
+          }
 				</div>
-      </div>
     );
   }
 }

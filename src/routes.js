@@ -1,14 +1,12 @@
-import React from 'react';
-
-const Home = React.lazy(() => import('./views/Home'));
-const People = React.lazy(() => import('./views/Panics/People'));
-const Contact = React.lazy(() => import('./views/Panics/Contact'));
+import HomeComponent from './views/Home';
+import ContactComponent from './views/ContactUs';
+import PeopleComponent from './views/People';
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  { path: '/home', name: 'Home', component: Home },
-  { path: '/people', name: 'People', component: People },
-  { path: '/contact/', name: 'Contact', component: Contact }
+  { path: '/home', name: 'Home', component: HomeComponent },
+  { path: '/people', name: 'People', component: PeopleComponent },
+  { path: '/contact/', name: 'Contact', component: ContactComponent }
 ];
 
 export default routes;
