@@ -24,7 +24,7 @@ code {
 /* Text styles */
 .Text-Style {
   font-family: Lato;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -35,7 +35,7 @@ code {
 }
 .Text-Style-2 {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -45,7 +45,7 @@ code {
   color: var(--black);
 }
 .active {
-  background-color: #0099FF;
+  background-color: #0099ff;
 }
 * {
   box-sizing: border-box;
@@ -82,14 +82,14 @@ code {
 .card {
   background-color: #fff;
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   line-height: 0;
   cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: 0 3px 6px rgba(0,0,0,.2)
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .card__body {
@@ -139,15 +139,15 @@ code {
   font-size: 13px;
   width: 20%;
   border-radius: 40px;
-  background: 2px solid rgba(108, 89, 179, 0.75);;
+  background: 2px solid rgba(108, 89, 179, 0.75);
   transition: all 0.3s ease 0s;
 }
 .btn-default {
   font-family: Raleway-SemiBold;
   font-size: 13px;
-  width: 80%;
+  width: 20%;
   border-radius: 40px;
-  background: black;;
+  background: black;
   transition: all 0.3s ease 0s;
 }
 .a-default {
@@ -156,11 +156,11 @@ code {
   width: 10%;
   height: 90%;
   border-radius: 80%;
-  background: black;;
+  background: black;
   transition: all 0.3s ease 0s;
 }
 .a-default:hover {
-  color: #FFF;
+  color: #fff;
   background: red;
 }
 /* Centered text */
@@ -181,35 +181,37 @@ code {
   bottom: 0;
   left: 0;
   right: 0;
-/*   position: relative; */
+  /*   position: relative; */
 }
 
-  .loader::before,
-  .loader::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
-  .loader::before {
-    background: hsla(0, 0%, 100%, 0.7);
-  }
+.loader::before {
+  background: hsla(0, 0%, 100%, 0.7);
+}
 
-  .loader::after {
-    content: '';
-    font-size: 48px;
-    width: 1em;
-    height: 1em;
-    border: 2px solid #ccc;
-    border-top-color: #ea4c89;
-    border-radius: 50%;
-    animation: spinner 1s linear infinite;
-  }
+.loader::after {
+  content: "";
+  font-size: 48px;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #ccc;
+  border-top-color: #ea4c89;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
 
-  @keyframes spinner {
-    to { transform: rotate(1turn); }
+@keyframes spinner {
+  to {
+    transform: rotate(1turn);
   }
+}
