@@ -15,15 +15,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="root"> 
-                  
+      <div className="root" >                   
       <main className="body">
-              <Container fluid>
               <NavComponent/> 
             <Route exact path="/" component={HomeComponent}/>
             <Route path="/people" component={PeopleComponent}/>
             <Route path="/contact" component={ContactComponent}/>
-            </Container>
             </main>
             <footer>
             <Row className="text-centre" style={{ background: "black"}}>

@@ -136,7 +136,7 @@ code {
 }
 .btn-danger {
   font-family: Raleway-SemiBold;
-  font-size: 13px;
+  font-size: 70%;
   width: 20%;
   border-radius: 40px;
   background: 2px solid rgba(108, 89, 179, 0.75);
@@ -151,12 +151,12 @@ code {
   transition: all 0.3s ease 0s;
 }
 .a-default {
-  font-family: Raleway-SemiBold;
-  font-size: 15px;
-  width: 10%;
-  height: 90%;
-  border-radius: 80%;
+  font-size: 13px;
+  border-radius: 30px;
+  width: 30%;
+  height: 8%;
   background: black;
+  background-size: 10%;
   transition: all 0.3s ease 0s;
 }
 .a-default:hover {
@@ -208,6 +208,10 @@ code {
   border-top-color: #ea4c89;
   border-radius: 50%;
   animation: spinner 1s linear infinite;
+}
+.carousel-inner {  
+  max-height: 50vh;
+  width: auto;
 }
 
 @keyframes spinner {

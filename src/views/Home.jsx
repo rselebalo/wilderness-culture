@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { FormGroup, Button, Col, Row } from "reactstrap";
-import BgndImg from "../assets/images/roller-coaster.jpg";
+import BgndImg from "../assets/images/wide-rolley2.jpg";
 import BgndMistImg from "../assets/images/mist2.jpg";
 import PicturesComponent from "../components/Pictures";
 import Global from "../global";
@@ -53,46 +53,39 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div class="carousel slide" data-ride="carousel" id="carousel1">
-          <ol class="carousel-indicators">
-            <li data-target="#carousel1" data-slide-to="0" class="active" />
+        <div className="carousel slide" data-ride="carousel" id="carousel1">
+          <ol className="carousel-indicators">
+            <li data-target="#carousel1" data-slide-to="0" className="active" />
           </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src={BgndImg} class="d-block w-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={BgndImg} className="d-block w-100" alt="..."/>
+              <div className="carousel-caption d-block centered">
                 <h5 className="Text-Style-2">WALIBI</h5>
                 <Button className="btn btn-default">View Case</Button>
               </div>
             </div>
-            {/* <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="..." />>
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            </div> */}
           </div>
           <a
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             href="#carouselExampleCaptions"
             role="button"
             data-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true" />
-            <span class="sr-only">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"/>
+            <span className="sr-only">Previous</span>
           </a>
           <a
-            class="carousel-control-next"
+            className="carousel-control-next"
             href="#carouselExampleCaptions"
             role="button"
             data-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true" />
-            <span class="sr-only">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true" />
+            <span className="sr-only">Next</span>
           </a>
         </div>
-        <div className="text-center">
+        <div className="text-center mt-4">
           <Col xs={12} sm={12} md={12}>
             <h6 className="Text-Style">WE ARE TAM TAM</h6>
             <p className="Text-Style-2">
@@ -118,7 +111,7 @@ class Home extends Component {
               <div className="loader" />
             ) : (
               <div className="text-center">
-                <h6 className="Text-Style">FOLLOW US ON INSTAGRAM</h6>
+                <h6 className="Text-Style mt-4">FOLLOW US ON INSTAGRAM</h6>
                 <p>@tamtamnl</p>
                 <PicturesComponent photos={this.state.photos} />
               </div>

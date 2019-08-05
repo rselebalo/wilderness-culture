@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardBody
 } from "reactstrap";
-import NavComponent from "../components/Navigation";
+import BgndMistImg from "../assets/images/mist2.jpg";
 import TooltipComponent from "../components/ToolTipItem";
 
 class Contact extends Component {
@@ -57,8 +57,13 @@ class Contact extends Component {
   };
   render() {
     return (
-      <div className="root">
-        <Card>
+      <div style={{
+        backgroundImage: `Url(${BgndMistImg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover"
+      }}>
+      <div className="centered">
+        <Card className="content">
           <CardHeader hidden={this.state.showErrorHeader}>
             {this.state.HeaderError}
           </CardHeader>
@@ -75,11 +80,17 @@ class Contact extends Component {
                   id={"firstName"}
                   placeholder={"First Name"}
                   value={this.state.firstName}
-                  onChange={() => {}}
+                  onChange={(e) => {
+                    this.setState({
+                      firstName: e.target.value,
+                      firstNameInvalid: false
+                    })
+                  }}                  
                 />
                 {this.state.firstNameInvalid && (
                   <TooltipComponent
                     target="firstName"
+                    placement="bottom"
                     toolTipOpen={this.state.firstNameInvalid}
                     message="We need your first name"
                   />
@@ -91,11 +102,16 @@ class Contact extends Component {
                   id={"lastName"}
                   placeholder={"Last Name"}
                   value={this.state.lastName}
-                  onChange={() => {}}
+                  onChange={(e) => {
+                    this.setState({
+                      lastName: e.target.value,
+                      lastNameInvalid: false
+                    })}}
                 />
                 {this.state.lastNameInvalid && (
                   <TooltipComponent
                     target="lastName"
+                    placement="bottom"
                     toolTipOpen={this.state.lastNameInvalid}
                     message="We need your last name"
                   />
@@ -109,11 +125,16 @@ class Contact extends Component {
                   type="email"
                   placeholder={"Your e-mail address"}
                   value={this.state.email}
-                  onChange={() => {}}
+                  onChange={(e) => {
+                    this.setState({
+                      email: e.target.value,
+                      emailInvalid: false
+                    })}}
                 />
                 {this.state.emailInvalid && (
                   <TooltipComponent
                     target="email"
+                    placement="bottom"
                     toolTipOpen={this.state.emailInvalid}
                     message="Please use a valid email address"
                   />
@@ -124,7 +145,10 @@ class Contact extends Component {
                   id={"phoneNumber"}
                   placeholder={"Your phone number (optional)"}
                   value={this.state.phoneNumber}
-                  onChange={() => {}}
+                  onChange={(e) => {
+                    this.setState({
+                      phoneNumber: e.target.value
+                    })}}
                 />
               </Col>
             </FormGroup>
@@ -136,11 +160,17 @@ class Contact extends Component {
                   id={"message"}
                   placeholder={"Your message"}
                   value={this.state.message}
-                  onChange={() => {}}
+                  onChange={(e) => {
+                    this.setState({
+                      message: e.target.value,
+                      messageEmpty: false
+                    })
+                  }}
                 />
                 {this.state.messageEmpty && (
                   <TooltipComponent
                     target="message"
+                    placement="bottom"
                     toolTipOpen={this.state.messageEmpty}
                     message="Sorry your message can't be empty"
                   />
@@ -156,6 +186,7 @@ class Contact extends Component {
             </Button>
           </Col>
         </Row>
+      </div>
       </div>
     );
   }

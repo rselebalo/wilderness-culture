@@ -14,7 +14,7 @@ class TooltipItem extends React.Component {
   render() {
     return (
       <span>
-        <Tooltip placement={"bottom"} isOpen={this.props.toolTipOpen} target={this.props.target} toggle={this.toggle}>
+        <Tooltip placement={this.props.placement} isOpen={this.props.toolTipOpen} target={this.props.target} toggle={this.toggle}>
           {this.props.message}
         </Tooltip>
       </span>
